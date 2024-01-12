@@ -1,0 +1,42 @@
+{
+  "Navbar": {
+    "1": "beranda",
+    "2": "tentang saya",
+    "3": "skills",
+    "4": "portofolio",
+    "5": "kontak"
+  },
+  "Home": {
+    "1": "halo, semua!",
+    "2": "saya",
+    "3": "Seorang frontend developer berpengalaman selama 1 tahun, mahir dalam membuat aplikasi web responsif dan modern dengan keahlian khusus dalam penerapan React JS.",
+    "4": "kontak saya disini",
+    "5": "unduh"
+  },
+  "About": {
+    "1": "tentang saya",
+    "2_1": "Halo, saya Muh Nur Aqsal Aminullah, S.Kom! Saya memiliki pengetahuan dan keahlian sebagai seorang",
+    "2_2": "yang terus saya kembangkan. Saya memiliki motivasi untuk terus berkembang dengan cara mempelajari teknologi baru, dan saat ini saya juga sedang belajar tentang teknologi backend. ",
+    "3": "I specialize in creating web applications, integrating APIs, ensuring clean and quality code, and handling slicing in mobile app development."
+  },
+  "skills": {
+    "1": "keterampilan & teknologi",
+    "2_1": "Keahlian utama saya adalah sebagai front end developer",
+    "2_2": "(sisi interface klien dari web maupun mobile)",
+    "3_1": "Berikut ini adalah teknologi-teknologi yang saya gunakan dalam mengerjakan",
+    "3_2": "pekerjaan saya sebagai front end developer untuk membangun sebuah situs web:"
+  },
+  "portfolio": {
+    "1": "portofolio",
+    "2_1": "Di bawah ini adalah beberapa proyek yang saya buat sebelumnya untuk",
+    "2_2": "proyek perkerjaan saya maupun proyek pribadi saya"
+  },
+  "Contact": {
+    "1": "kontak",
+    "2_1": "Saya sangat tertarik dan terbuka untuk peluang pekerjaan ",
+    "2_2": "freelance, part-time, atau full-time.",
+    "3_1": "Selain itu, saya juga siap membantu atau berdiskusi tentang proyek",
+    "3_2": "menarik Anda. Jangan ragu untuk menghubungi saya kapan saja.",
+    "4": "kirim"
+  }
+}
