@@ -17,12 +17,20 @@ export default {
     },
     extend: {
       colors: {
-        'primary': '#131A35',
-        'secondry': '#0EE6B7',
+        'primary': '#00002D',
+        'secondary': '#FFA300',
+        'text-1': '#8D939D',
       },
       boxShadow: {
-        'opsi-1': '2px 2px 10px 2px rgba(255,255,255,0.10);'
+        'card': '5px 5px 10px 0 rgba(255, 255, 255, 0.2)',
       }
+      // colors: {
+      //   'primary': '#131A35',
+      //   'secondry': '#0EE6B7',
+      // },
+      // boxShadow: {
+      //   'opsi-1': '2px 2px 10px 2px rgba(255,255,255,0.10);'
+      // }
     },
   },
   plugins: [],

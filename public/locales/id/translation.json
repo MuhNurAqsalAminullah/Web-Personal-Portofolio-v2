@@ -1,4 +1,5 @@
 {
+  "description": "Deskripsi",
   "Navbar": {
     "1": "beranda",
     "2": "tentang saya",
@@ -9,25 +10,28 @@
   "Home": {
     "1": "halo, semua!",
     "2": "saya",
-    "3": "Seorang frontend developer berpengalaman selama 1 tahun, mahir dalam membuat aplikasi web responsif dan modern dengan keahlian khusus dalam penerapan React JS.",
-    "4": "kontak saya disini",
-    "5": "unduh"
+    "3_1": "Seorang ",
+    "3_2": "Frontend Developer",
+    "3_3": "yang mahir dalam membuat aplikasi website modern dan responsive dengan keahlian khusus dalam penerapan React JS",
+    "4": "hire me",
+    "5": "unduh cv saya"
   },
   "About": {
     "1": "tentang saya",
-    "2_1": "Halo, saya Muh Nur Aqsal Aminullah, S.Kom! Saya memiliki pengetahuan dan keahlian sebagai seorang",
-    "2_2": "yang terus saya kembangkan. Saya memiliki motivasi untuk terus berkembang dengan cara mempelajari teknologi baru, dan saat ini saya juga sedang belajar tentang teknologi backend. ",
-    "3": "I specialize in creating web applications, integrating APIs, ensuring clean and quality code, and handling slicing in mobile app development."
+    "2": "Halo, saya Muh Nur Aqsal Aminullah, S.Kom! Saya memiliki pengetahuan dan keahlian sebagai seorang frontend developer yang terus saya kembangkan. Saya memiliki motivasi untuk terus berkembang dengan cara mempelajari teknologi baru, dan saat ini saya juga sedang belajar tentang teknologi backend.",
+    "3": "Saya mengkhususkan diri dalam membuat aplikasi web, mengintegrasikan API, memastikan kode bersih dan berkualitas, dan dapat melakukan slicing dalam pengembangan aplikasi mobile."
   },
-  "skills": {
-    "1": "keterampilan & teknologi",
+  "Skills": {
+    "1": "keahlian & teknologi",
     "2_1": "Keahlian utama saya adalah sebagai front end developer",
     "2_2": "(sisi interface klien dari web maupun mobile)",
     "3_1": "Berikut ini adalah teknologi-teknologi yang saya gunakan dalam mengerjakan",
     "3_2": "pekerjaan saya sebagai front end developer untuk membangun sebuah situs web:"
   },
   "portfolio": {
-    "1": "portofolio",
+    "1_1": "proyek",
+    "1_2": "or",
+    "1_3": "portofolio",
     "2_1": "Di bawah ini adalah beberapa proyek yang saya buat sebelumnya untuk",
     "2_2": "proyek perkerjaan saya maupun proyek pribadi saya"
   },

@@ -1,23 +1,21 @@
 import React from "react";
-import { CiMenuFries } from "react-icons/ci";
-import { IoCloseOutline } from "react-icons/io5";
+
+import * as IoIcons from "react-icons/io5";
+import * as RiIcons from "react-icons/ri";
 
 const BurgerMenu = ({ burger, burgerToggle }) => {
   return (
     <div
       onClick={burgerToggle}
-      className="sm:flex sm:justify-end sm:relative md:hidden z-40"
+      className="sm:flex sm:justify-end sm:relative ld:hidden z-40"
     >
       {burger ? (
-        <IoCloseOutline
+        <IoIcons.IoCloseOutline
           size={40}
-          className="sm:bg-white/[.3] sm:w-fit sm:px-6 sm:py-2 sm:rounded-md backdrop-blur-md"
+          className="sm:w-fit font-bold sm:py-1"
         />
       ) : (
-        <CiMenuFries
-          size={40}
-          className="sm:bg-white/[.3] sm:w-fit sm:px-6 sm:py-2 sm:rounded-md backdrop-blur-md"
-        />
+        <RiIcons.RiMenu3Line size={40} className="sm:w-fit font-bold sm:py-1" />
       )}
     </div>
   );

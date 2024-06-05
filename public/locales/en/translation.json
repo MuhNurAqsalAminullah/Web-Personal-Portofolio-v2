@@ -1,4 +1,5 @@
 {
+  "description": "Description",
   "Navbar": {
     "1": "home",
     "2": "about me",
@@ -7,19 +8,20 @@
     "5": "contact"
   },
   "Home": {
-    "1": "Hi, There!",
+    "1": "hi, there!",
     "2": "I'm",
-    "3": "A front-end developer with 1 year of experience, skilled in creating responsive and modern web applications with expertise in utilizing React JS.",
-    "4": "Contact me here",
-    "5": "Download"
+    "3_1": "a skilled",
+    "3_2": "Frontend Developer",
+    "3_3": "with expertise in creating modern and responsive web applications using React JS",
+    "4": "hire me",
+    "5": "download my cv"
   },
   "About": {
     "1": "about me",
-    "2_1": "Hi, I'm Muh Nur Aqsal Aminullah, S.Kom! I have knowledge and skills as a",
-    "2_2": "that I'm always improving. I'm motivated to learn new technologies and currently exploring backend as well.",
+    "2": "Hi, I'm Muh Nur Aqsal Aminullah, S.Kom! I have knowledge and skills as a that I'm always improving.  I am motivated to continue growing by learning new technologies, and I am currently also learning about backend technology.",
     "3": "I specialize in creating web applications, integrating APIs, ensuring clean and quality code, and handling slicing in mobile app development."
   },
-  "skills": {
+  "Skills": {
     "1": "skills & technology",
     "2_1": "The main area of expertise is front end developmen",
     "2_2": "(client side of the web and mobile).",
@@ -27,7 +29,9 @@
     "3_2": "to build a website:"
   },
   "portfolio": {
-    "1": "portfolio",
+    "1_1": "project",
+    "1_2": "or",
+    "1_3": "portfolio",
     "2_1": "Below are some projects that I made previously for my work",
     "2_2": "projects and personal projects"
   },
