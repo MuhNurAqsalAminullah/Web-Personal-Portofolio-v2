@@ -49,52 +49,52 @@ const SkillSlide = () => {
     >
       <SwiperSlide>
         <div className="imge">
-          <img src={htmlIcons} alt="html icons" />
+          <img src={htmlIcons.src} alt="html icons" />
         </div>
       </SwiperSlide>
       <SwiperSlide>
         <div className="imge">
-          <img src={cssIcons} alt="css icons" />
+          <img src={cssIcons.src} alt="css icons" />
         </div>
       </SwiperSlide>
       <SwiperSlide>
         <div className="imge">
-          <img src={jsIcons} alt="javascript icons" />
+          <img src={jsIcons.src} alt="javascript icons" />
         </div>
       </SwiperSlide>
       <SwiperSlide>
         <div className="imge">
-          <img src={reactIcons} alt="react icons" />
+          <img src={reactIcons.src} alt="react icons" />
         </div>
       </SwiperSlide>
       <SwiperSlide>
         <div className="imge">
-          <img src={reduxToolkitIcons} alt="redux toolkit icons" />
+          <img src={reduxToolkitIcons.src} alt="redux toolkit icons" />
         </div>
       </SwiperSlide>
       <SwiperSlide>
         <div className="imge">
-          <img src={tailwindIcons} alt="tailwind icons" />
+          <img src={tailwindIcons.src} alt="tailwind icons" />
         </div>
       </SwiperSlide>
       <SwiperSlide>
         <div className="imge">
-          <img src={bootstrapIcons} alt="bootsrap icons" />
+          <img src={bootstrapIcons.src} alt="bootsrap icons" />
         </div>
       </SwiperSlide>
       <SwiperSlide>
         <div className="imge">
-          <img src={gitIcons} alt="git icons" />
+          <img src={gitIcons.src} alt="git icons" />
         </div>
       </SwiperSlide>
       <SwiperSlide>
         <div className="imge">
-          <img src={githubIcons} alt="github icons" />
+          <img src={githubIcons.src} alt="github icons" />
         </div>
       </SwiperSlide>
       <SwiperSlide>
         <div className="imge">
-          <img src={postmanIcons} alt="postman icons" />
+          <img src={postmanIcons.src} alt="postman icons" />
         </div>
       </SwiperSlide>
     </Swiper>

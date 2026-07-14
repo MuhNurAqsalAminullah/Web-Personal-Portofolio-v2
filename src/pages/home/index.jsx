@@ -1,6 +1,9 @@
+"use client";
 import React, { useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import emailjs from "@emailjs/browser";
+import '../../../i18next'
+import dynamic from "next/dynamic";
 
 // Import React-icons ---------->
 import * as IoIcons from "react-icons/io";
@@ -8,7 +11,7 @@ import * as FaIcons from "react-icons/fa6";
 import * as FaIconss from "react-icons/fa";
 
 // Import Components ---------->
-import Navbar from "../../components/navbar";
+// import Navbar from "../../components/navbar";
 import Footer from "../../components/footer";
 import CardOne from "../../components/card/CardOne";
 import CardTwo from "../../components/card/CardTwo";
@@ -24,6 +27,17 @@ const Home = () => {
   // const [showAll, setShowAll] = useState(false);
   // const [datasW, setDataW] = useState(workPortfolio);
   // const displayedData = showAll ? datas : datas.slice(0, 3);
+  const Navbar = dynamic(() => import('../../components/navbar'), { 
+    ssr: false 
+  });
+
+  const CardOne = dynamic(() => import('../../components/card/CardOne'), {
+    ssr: false
+  });
+
+  const CardTwo = dynamic(() => import('../../components/card/CardTwo'), {
+    ssr: false
+  });
 
   // i18next translate id/en --------->
   const { t, i18n } = useTranslation();
@@ -82,7 +96,7 @@ const Home = () => {
             </p>
 
             <div className="sm:mb-8 flex sm:justify-center lg:justify-start gap-x-5">
-              <a href="https://wa.me/6281914753612" target="_blank">
+              <a href="https://wa.me/6281914753612" target="_blank" rel="noreferrer">
                 <button className="sm:text-sm md:text-base xl:text-lg px-5 py-1 font-[K2D] rounded-md bg-secondary text-primary font-bold uppercase">
                   {/* HIRE ME */}
                   {t("Home.4")}
@@ -104,18 +118,21 @@ const Home = () => {
                 <a
                   href="https://github.com/MuhNurAqsalAminullah"
                   target="_blank"
+                   rel="noreferrer"
                 >
                   <FaIcons.FaGithub className="sm:text-xl" />
                 </a>
                 <a
                   href="https://www.linkedin.com/in/muhnuraqsalaminullah/"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <FaIcons.FaLinkedin className="sm:text-xl" />
                 </a>
                 <a
                   href="https://www.instagram.com/muh_aqsal04/"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <FaIconss.FaInstagramSquare className="sm:text-xl " />
                 </a>
@@ -124,11 +141,11 @@ const Home = () => {
           </div>
 
           <div className=" sm:mt-3 sm:mb-20 sm:w-[200px] md:w-[250px] md:mb-24 ld:mb-28 ld:w-[300px] lg:w-[350px] lg:mt-0 lg:mb-0">
-            <img src={profileImage} alt="" />
+            <img src={profileImage.src} alt="" />
           </div>
         </div>
 
-        <img src={waveVector} className="w-screen absolute bottom-0" alt="" />
+        <img src={waveVector.src} className="w-screen absolute bottom-0" alt="" />
       </div>
 
       {/* About me ----------------- >>> */}
@@ -139,7 +156,7 @@ const Home = () => {
         <div className="sm:flex sm:flex-col md:justify-center ld:items-center ld:gap-x-5 ld:flex-row">
           <div className="sm:w-full">
             <img
-              src={aboutImage}
+              src={aboutImage.src}
               className="sm:w-2/3 md:w-1/2 ld:w-3/4 lg:w-3/4 md:m-auto ld:m-0 rounded-lg m-auto"
               alt=""
             />
@@ -233,16 +250,17 @@ const Home = () => {
 
         <div className="text-primary mt-4">
           <div className="flex sm:justify-center gap-x-3">
-            <a href="https://github.com/MuhNurAqsalAminullah" target="_blank">
+            <a href="https://github.com/MuhNurAqsalAminullah" target="_blank" rel="noreferrer">
               <FaIcons.FaGithub className="sm:text-xl" />
             </a>
             <a
               href="https://www.linkedin.com/in/muhnuraqsalaminullah/"
               target="_blank"
+               rel="noreferrer"
             >
               <FaIcons.FaLinkedin className="sm:text-xl" />
             </a>
-            <a href="https://www.instagram.com/muh_aqsal04/" target="_blank">
+            <a href="https://www.instagram.com/muh_aqsal04/" target="_blank" rel="noreferrer">
               <FaIconss.FaInstagramSquare className="sm:text-xl " />
             </a>
           </div>
@@ -280,7 +298,9 @@ const Home = () => {
                 value="Send"
                 className="sm:flex sm:justify-center sm:items-center sm:gap-x-1 sm:w-32 sm:h-10 font-semibold rounded-md bg-secondary text-white capitalize"
               >
-                <span>{t("Contact.4")}</span>
+                <span>
+                  {t("Contact.4")}
+                </span>
                 <IoIcons.IoIosSend className="sm:w-5 sm:h-5" />
               </button>
             </div>

@@ -1,8 +1,18 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import * as FaIconss from "react-icons/fa";
 import ImageProjekSlide from "../slides/ImageProjekSlide";
 
-const CardTwo = (props) => {
+interface Props {
+  title: string;
+  description: string;
+  skills: { id: number; title: string }[];
+  image: { img: string }[];
+  urlGithub: string;
+  urlDemo: string;
+}
+
+const CardTwo = (props: Props) => {
   const { title, description, skills, image, urlGithub, urlDemo } = props;
 
   const [linkGithub, setLinkGithub] = useState(false);

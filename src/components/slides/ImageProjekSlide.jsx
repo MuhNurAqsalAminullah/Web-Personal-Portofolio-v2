@@ -28,7 +28,7 @@ const ImageProjekSlide = ({ data }) => {
             key={items.id}
             className="text-black flex justify-center items-center"
           >
-            <img src={items.img} alt="" />
+            <img src={items.img.src} alt="" />
           </SwiperSlide>
         ))}
       </Swiper>

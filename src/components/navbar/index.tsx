@@ -1,7 +1,15 @@
 import React, { useState } from "react";
 import BurgerMenu from "../button/BurgerMenu";
 
-const Navbar = ({ t, i18n, clickLanguage }) => {
+interface Props {
+  t: (key: string) => string;
+  i18n: {
+    language: string;
+  };
+  clickLanguage: () => void;
+}
+
+const Navbar = ({ t, i18n, clickLanguage }: Props) => {
   const [burger, setBurger] = useState(false);
 
   const burgerToggle = () => {
