@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import emailjs from "@emailjs/browser";
 import '../../../i18next'
@@ -13,17 +13,15 @@ import * as FaIconss from "react-icons/fa";
 // Import Components ---------->
 // import Navbar from "../../components/navbar";
 import Footer from "../../components/footer";
-import CardOne from "../../components/card/CardOne";
-import CardTwo from "../../components/card/CardTwo";
-import personalPortfolio from "../../data/Portfolio";
 
 // import images ---------->
 import { waveVector, profileImage, aboutImage } from "../../data/images";
 import SkillSlide from "../../components/slides/SkillSlide";
+import { getPortfolio } from "../../lib/api";
 
 const Home = () => {
   // Display data portfolio -------->
-  const [datas, setData] = useState(personalPortfolio);
+  const [datas, setData] = useState<any[]>([]);
   // const [showAll, setShowAll] = useState(false);
   // const [datasW, setDataW] = useState(workPortfolio);
   // const displayedData = showAll ? datas : datas.slice(0, 3);
@@ -47,7 +45,7 @@ const Home = () => {
   }
 
   // EmailJs --------->
-  const form = useRef();
+  const form = useRef<any>();
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -69,6 +67,21 @@ const Home = () => {
       );
     e.target.reset();
   };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  async function getData() {
+    try{
+      const query = `*[_type == "portfolio"] | order(_createdAt asc){_id, title, urlGithub, urlDemo, description, image, "category": category[]->{ _id, title}}`
+      const response = await getPortfolio(query)
+      console.log("hhh response",response)
+      setData(response)
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
 
   return (
     <div>
@@ -210,20 +223,22 @@ const Home = () => {
         </p>
 
         <div className="mt-10 ld:px-14">
-          {datas.map((item) =>
-            item.id % 2 === 0 ? (
-              <CardOne
-                key={item.id}
-                {...item}
-                description={item.description[i18n.language]}
-              />
-            ) : (
-              <CardTwo
-                key={item.id}
-                {...item}
-                description={item.description[i18n.language]}
-              />
-            )
+          {datas.map((item, index) => {
+            return (
+              index % 2 === 0 ? (
+                <CardOne
+                  key={item._id}
+                  i18n={i18n}
+                  {...item}
+                />
+              ) : (
+                <CardTwo
+                  key={item._id}
+                  i18n={i18n}
+                  {...item}
+                />
+              )
+            )}
           )}
         </div>
       </div>
@@ -314,207 +329,3 @@ const Home = () => {
 };
 
 export default Home;
-
-// Banner v2
-{
-  /* <div
-        id="home"
-        className="sm:flex sm:flex-col sm:justify-center sm:items-center sm:px-5 sm:pt-24 md:pt-40 text-center"
-      >
-        <p className="sm:text-xl sm:mb-4 md:text-2xl lg:text-xl capitalize">
-          {t("Home.1")}
-        </p>
-        <h1 className="sm:text-4xl sm:mb-4 md:text-5xl lg:text-6xl font-bold capitalize">
-          {t("Home.2")}{" "}
-          <span className="text-secondry">Muh Nur Aqsal Aminullah</span>
-        </h1>
-        <h3 className="sm:text-3xl sm:mb-7 md:text-4xl lg:text-5xl font-semibold">
-          Front End{" "}
-          <span className="underline underline-offset-8">Developer</span>
-        </h3>
-        <p className="sm:text-xl sm:mb-14 md:text-2xl lg:px-36">
-          {t("Home.3")}
-        </p>
-
-        <div className="sm:w-full sm:flex sm:flex-col sm:items-center sm:gap-y-3 sm:mb-7 md:flex-row md:justify-center sm:md:gap-x-4">
-          <a href="#contact">
-            <button className="sm:w-fit sm:py-2 sm:px-6 sm:text-lg sm:flex sm justify-center sm:items-center sm:gap-x-3 lg:text-lg lg:py-2 rounded-md bg-secondry text-primary ">
-              <span className="font-medium capitalize">{t("Home.4")}</span>
-              <FaIcons.FaArrowRightLong className="text-primary" />
-            </button>
-          </a>
-          <a
-            href="CV_Muh Nur Aqsal Aminullah.pdf"
-            download={"CV_Muh Nur Aqsal Aminullah.pdf"}
-          >
-            <button className="sm:w-fit sm:py-2 sm:px-6 sm:text-lg sm:flex sm justify-center sm:items-center sm:gap-x-3 lg:text-lg lg:py-2 rounded-md border border-secondry text-secondry capitalize">
-              <span>{t("Home.5")} CV</span>
-              <FaIcons.FaDownload className="text-secondry" />
-            </button>
-          </a>
-        </div>
-
-        <div className="sm:flex sm:gap-x-5">
-          <a
-            href="https://wa.me/6281914753612"
-            target="_blank"
-            className="sm:w-12 sm:h-12 sm:flex sm:justify-center sm:items-center rounded-full bg-secondry/[.4]"
-          >
-            <img src={waIcons} className="w-6" alt="" />
-          </a>
-          <a
-            href="https://t.me/muh_aqsal"
-            target="_blank"
-            className="sm:w-12 sm:h-12 sm:flex sm:justify-center sm:items-center rounded-full bg-secondry/[.4]"
-          >
-            <img src={telegramIcons} className="w-6" alt="" />
-          </a>
-          <a
-            href="https://www.instagram.com/muh_aqsal04/"
-            target="_blank"
-            className="sm:w-12 sm:h-12 sm:flex sm:justify-center sm:items-center rounded-full bg-secondry/[.4]"
-          >
-            <img src={instagramIcons} className="w-6" alt="" />
-          </a>
-        </div>
-
-        <div className="sm:my-20 h-10 border border-white/[.3]"></div>
-      </div> */
-}
-
-// About v2
-{
-  /* <div
-        id="about"
-        className="sm:mx-8 sm:py-28 md:mx-10 ld:px-[150px] lg:px-0 lg:mx-[200px]"
-      >
-        <div>
-          <div className="mb-3 flex items-center justify-center ld:hidden">
-            <div className="sm:w-20 border-t border-secondry"></div>
-            <h1 className="text-secondry font-medium capitalize text-3xl text-center sm:w-fit sm:py-1 sm:mx-3 md:px-2 ">
-              {t("About.1")}
-            </h1>
-            <div className="sm:w-20 border-t border-secondry"></div>
-          </div>
-
-          <div className="ld:flex ld:justify-between ld:gap-x-10 lg:gap-x-20">
-            <div className="sm:flex sm:justify-center lg:justify-end ld:w-[40%]">
-              <div className="sm:relative sm:mt-5 lg:mt-0 rounded-lg overflow-hidden bg-slate-400">
-                <img
-                  src={bgProfile}
-                  className="sm:w-[150px] ld:w-[250px]"
-                  alt=""
-                />
-              </div>
-            </div>
-
-            <div className="sm:mt-8 ld:mt-0 ld:w-[60%]">
-              <div className="ld:mb-3 ld:flex ld:items-center sm:hidden">
-                <h1 className="text-secondry font-medium capitalize text-4xl text-center sm:w-fit sm:py-1 sm:mr-3 md:pr-2 ">
-                  {t("About.1")}
-                </h1>
-                <div className="sm:w-20 border-t border-secondry"></div>
-              </div>
-              <p className="lg:text-lg sm:text-center ld:text-start">
-                {t("About.2_1")}{" "}
-                <span className="text-secondry">frontend developer</span>{" "}
-                {t("About.2_2")}
-              </p>
-              <p className="lg:text-lg sm:text-center ld:text-start sm:mt-5">
-                {t("About.3")}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div> */
-}
-
-// Skills v2
-{
-  /* <div id="skills" className="sm:mx-8 sm:py-28 md:mx-10 lg:mx-[200px]">
-        <div className="mb-3 flex items-center justify-center">
-          <div className="sm:w-20 border-t border-secondry"></div>
-          <h1 className="text-secondry font-medium capitalize text-4xl text-center sm:w-fit sm:py-1 md:px-2 ">
-            {t("skills.1")}
-          </h1>
-          <div className="sm:w-20 border-t border-secondry"></div>
-        </div>
-
-        <div>
-          <p className="md:px-20 lg:text-lg text-center mb-5">
-            {t("skills.2_1")} <br className="sm:hidden ld:block" />{" "}
-            {t("skills.2_2")}
-          </p>
-          <p className="md:px-20 lg:text-lg text-center">
-            {t("skills.3_1")} <br className="sm:hidden ld:block" />{" "}
-            {t("skills.3_2")}
-          </p>
-        </div>
-
-        <div className="sm:flex sm:flex-wrap sm:justify-evenly sm:gap-3 md:justify-center md:gap-5 ld:px-24 lg:px-36 mt-5">
-          <img src={htmlIcons} className="sm:w-20 md:w-fit" alt="" />
-          <img src={cssIcons} className="sm:w-20 md:w-fit" alt="" />
-          <img src={jsIcons} className="sm:w-20 md:w-fit" alt="" />
-          <img src={reactIcons} className="sm:w-20 md:w-fit" alt="" />
-          <img src={reduxToolkitIcons} className="sm:w-20 md:w-fit" alt="" />
-          <img src={tailwindIcons} className="sm:w-20 md:w-fit" alt="" />
-          <img src={bootstrapIcons} className="sm:w-20 md:w-fit" alt="" />
-          <img src={gitIcons} className="sm:w-20 md:w-fit" alt="" />
-          <img src={githubIcons} className="sm:w-20 md:w-fit" alt="" />
-          <img src={postmanIcons} className="sm:w-20 md:w-fit" alt="" />
-        </div>
-      </div> */
-}
-
-// Project v2
-{
-  /* <div id="portfolio" className="sm:mx-8 sm:py-28 md:mx-10 lg:mx-[200px]">
-        <div className="mb-3 flex items-center justify-center">
-          <div className="sm:w-20 border-t border-secondry"></div>
-          <h1 className="text-secondry font-medium capitalize text-4xl text-center sm:w-fit sm:px-3 sm:py-1 md:px-2 ">
-            {t("portfolio.1")}
-          </h1>
-          <div className="sm:w-20 border-t border-secondry"></div>
-        </div>
-
-        <div>
-          <p className="md:px-20 lg:text-lg text-center mb-10">
-            {t("portfolio.2_1")} <br className="sm:hidden ld:block" />{" "}
-            {t("portfolio.2_2")}
-          </p>
-        </div>
-
-        <div className="sm:flex sm:flex-col sm:gap-y-5 md:flex-row md:justify-between">
-          {datasW.map((items) => (
-            <CardOne data={items} />
-          ))}
-        </div>
-
-        <div className="w-32 border border-white/[.1] m-auto my-10"></div>
-
-        <div className="sm:flex sm:flex-col sm:gap-y-5 md:flex-row md:justify-between md:flex-wrap">
-          {displayedData.map((item) => (
-            <CardTwo data={item} />
-          ))}
-        </div>
-
-        <div className="flex justify-center mt-10">
-          <button
-            className="sm:text-lg sm:py-2 sm:px-5 rounded-md md:text-xl md:px-8 border border-secondry text-center"
-            onClick={() => setShowAll(!showAll)}
-          >
-            {showAll ? "View less" : "View all"}
-          </button>
-        </div>
-      </div> */
-}
-
-// Change language v2
-{
-  /* <button
-        className="sm:h-14 sm:w-14 sm:bottom-5 sm:right-5 fixed rounded-md bg-secondry/[.3] backdrop-blur-md z-50"
-        onClick={clickLanguage}
-      >
-        {i18n.language === "en" ? "EN" : "ID"}
-      </button> */
-}

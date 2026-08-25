@@ -3,7 +3,9 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
+// @ts-ignore – CSS imports are handled by the bundler, not by TypeScript
 import "swiper/css";
+// @ts-ignore
 import "swiper/css/pagination";
 
 // import required modules
@@ -102,11 +104,3 @@ const SkillSlide = () => {
 };
 
 export default SkillSlide;
-// <div className="border border-red-400 sm:w-full md:w-[45%]">
-{
-  /* <div className="sm:w-full bg-slate-500"> */
-}
-{
-  /* </div> */
-}
-// </div>

@@ -1,6 +1,7 @@
-"use client";
 import React, { useEffect, useState } from "react";
+
 import * as FaIconss from "react-icons/fa";
+
 import ImageProjekSlide from "../slides/ImageProjekSlide";
 
 interface Props {
@@ -13,13 +14,14 @@ interface Props {
   urlDemo: string;
 }
 
-const CardTwo = (props: Props) => {
+const CardOne = (props: Props) => {
   const { i18n, title, description, category, image, urlGithub, urlDemo } = props;
 
   const [linkGithub, setLinkGithub] = useState(false);
   const [linkDemo, setLinkDemo] = useState(false);
 
   useEffect(() => {
+    console.log("hhh image :", image);
     if (urlGithub === "") {
       setLinkGithub(true);
     }
@@ -29,10 +31,13 @@ const CardTwo = (props: Props) => {
   }, []);
 
   return (
-    <div className="sm:flex sm:flex-col-reverse md:flex-row md:justify-between my-20">
+    <div className="sm:flex sm:flex-col md:flex-row md:justify-between">
+      <div className=" sm:w-full sm:h-48 md:w-[45%] md:my-auto ld:my-0 ld:h-60">
+        <ImageProjekSlide data={image} />
+      </div>
       <div className="sm:w-full flex flex-col justify-between md:w-[45%]">
         <div className="">
-          <h3 className="uppercase font-[K2D] font-bold sm:text-lg sm:mt-5 md:mt-0 lg:text-xl text-center mb-3">
+          <h3 className="uppercase font-[K2D] sm:mt-5 md:mt-0 font-bold sm:text-lg lg:text-xl text-center mb-3">
             {title}
           </h3>
           <p className="text-text-1 text-center sm:mb-1 ld:mb-3">
@@ -71,11 +76,8 @@ const CardTwo = (props: Props) => {
           </a>
         </div>
       </div>
-      <div className="sm:w-full sm:h-48 md:w-[45%] md:my-auto ld:my-0 ld:h-60">
-        <ImageProjekSlide data={image} />
-      </div>
     </div>
   );
 };
 
-export default CardTwo;
+export default CardOne;
